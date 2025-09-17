@@ -5,6 +5,7 @@ import com.example.kt_post.domain.post.entity.Post
 import com.example.kt_post.domain.post.repository.PostRepository
 import com.example.kt_post.domain.post.service.PostService
 import lombok.RequiredArgsConstructor
+import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.PathVariable
 import org.springframework.web.bind.annotation.PostMapping
@@ -18,11 +19,14 @@ import org.springframework.web.bind.annotation.RequestMapping
 class PostController(private val postService : PostService) {
 
     @GetMapping
-    fun getAll() = postService.findAll()
+    fun getAll() =
+        ResponseEntity.ok().body(postService.findAll())
 
     @GetMapping("/user/{userId}")
-    fun getByUserId(@PathVariable userId : Long) = postService.findByUserId(userId)
+    fun getByUserId(@PathVariable userId : Long) =
+        ResponseEntity.ok().body(postService.findByUserId(userId))
 
     @PostMapping
-    fun createPost(@RequestBody dto : PostCreateDto) = postService.createPost(dto)
+    fun createPost(@RequestBody dto : PostCreateDto) =
+        ResponseEntity.ok().body(postService.createPost(dto))
 }
