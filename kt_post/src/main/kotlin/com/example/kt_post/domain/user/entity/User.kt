@@ -4,11 +4,11 @@ import jakarta.persistence.*
 
 @Entity
 @Table(name = "user")
-open class User(
+class User(
     var nickname: String,
     var email: String,
 ) {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    open var id: Long = 0
+    var id: Long = 0
 }

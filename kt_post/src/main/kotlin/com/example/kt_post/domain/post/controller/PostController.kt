@@ -6,6 +6,7 @@ import com.example.kt_post.domain.post.repository.PostRepository
 import com.example.kt_post.domain.post.service.PostService
 import lombok.RequiredArgsConstructor
 import org.springframework.web.bind.annotation.GetMapping
+import org.springframework.web.bind.annotation.PathVariable
 import org.springframework.web.bind.annotation.PostMapping
 import org.springframework.web.bind.annotation.RequestBody
 import org.springframework.web.bind.annotation.RestController
@@ -18,6 +19,9 @@ class PostController(private val postService : PostService) {
 
     @GetMapping
     fun getAll() = postService.findAll()
+
+    @GetMapping("/user/{userId}")
+    fun getByUserId(@PathVariable userId : Long) = postService.findByUserId(userId)
 
     @PostMapping
     fun createPost(@RequestBody dto : PostCreateDto) = postService.createPost(dto)

@@ -27,6 +27,18 @@ class PostService(
             )
         }
 
+    // 유저 id 기반 조회
+    fun findByUserId(userId : Long) : List<PostReadDto> = postRepository.findByUser_Id(userId)
+        .map { post ->
+            PostReadDto(
+                userId = post.user.id,
+                nickname = post.user.nickname,
+                postId = post.id,
+                title = post.title,
+                content = post.content
+            )
+        }
+
 
     // 게시글 생성
     fun createPost(dto : PostCreateDto) : Post{
