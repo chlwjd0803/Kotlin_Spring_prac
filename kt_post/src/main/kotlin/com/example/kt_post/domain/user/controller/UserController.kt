@@ -3,7 +3,9 @@ package com.example.kt_post.domain.user.controller
 import com.example.kt_post.domain.user.dto.CreateUserDto
 import com.example.kt_post.domain.user.service.UserService
 import org.springframework.http.ResponseEntity
+import org.springframework.web.bind.annotation.DeleteMapping
 import org.springframework.web.bind.annotation.GetMapping
+import org.springframework.web.bind.annotation.PathVariable
 import org.springframework.web.bind.annotation.PostMapping
 import org.springframework.web.bind.annotation.RequestBody
 import org.springframework.web.bind.annotation.RestController
@@ -20,5 +22,9 @@ class UserController(private val userService : UserService) {
     @PostMapping
     fun createUser(@RequestBody dto : CreateUserDto) =
         ResponseEntity.ok().body(userService.createUser(dto))
+
+    @DeleteMapping("/{userId}")
+    fun deleteUser(@PathVariable userId : Long) =
+        ResponseEntity.ok().body(userService.deleteUser(userId))
 
 }
