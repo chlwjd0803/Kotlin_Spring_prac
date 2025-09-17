@@ -13,5 +13,5 @@ class UserService(private val userRepository: UserRepository) {
 
     // 여기는 getter setter가 따로 없는거같음
     fun createUser(dto : CreateUserDto) =
-        userRepository.save(User(dto.email, dto.nickname))
+        userRepository.save(User(dto.nickname, dto.email))
 }

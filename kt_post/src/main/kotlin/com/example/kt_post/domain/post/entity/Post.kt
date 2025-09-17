@@ -1,5 +1,6 @@
 package com.example.kt_post.domain.post.entity
 
+import com.example.kt_post.domain.post.dto.PostUpdateDto
 import com.example.kt_post.domain.user.entity.User
 import jakarta.persistence.Entity
 import jakarta.persistence.FetchType
@@ -25,4 +26,10 @@ class Post(
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     val id: Long = 0 // 기본값이 존재해야함
+
+    fun update(dto : PostUpdateDto){
+        // Elvis 연산자. dto가 null이면 업데이트 안하고 값이 있으면 반영, 코틀린에서 추가됨
+        title = dto.title ?: title
+        content = dto.content ?: content
+    }
 }
