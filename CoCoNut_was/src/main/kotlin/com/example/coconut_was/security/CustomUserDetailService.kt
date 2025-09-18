@@ -1,6 +1,5 @@
 package com.example.coconut_was.security
 
-import CoCoNut_was.domains.user.repository.UserRepository
 import org.springframework.security.core.userdetails.User
 import org.springframework.security.core.userdetails.UserDetails
 import org.springframework.security.core.userdetails.UserDetailsService
