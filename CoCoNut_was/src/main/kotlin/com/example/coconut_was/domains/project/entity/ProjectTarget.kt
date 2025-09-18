@@ -17,5 +17,5 @@ open class ProjectTarget(
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id", nullable = false)
-    open var id: Long? = null
+    open var id: Long = 0
 }

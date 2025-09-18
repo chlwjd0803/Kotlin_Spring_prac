@@ -17,5 +17,5 @@ open class ProjectStyle(
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "project_style_id", nullable = false)
-    open var id: Long? = null
+    open var id: Long = 0
 }

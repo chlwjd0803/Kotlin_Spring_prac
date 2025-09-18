@@ -16,5 +16,5 @@ open class ProjectColor(
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "project_color_id", nullable = false)
-    open var id: Long? = null
+    open var id: Long = 0
 }
